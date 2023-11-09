@@ -1,0 +1,70 @@
+<!-- 
+This file is part of PyFlaSQL.
+Original author: Raphael Viera (raphael.viera@emse.fr)
+License: check the LICENSE file.
+-->
+{% extends "base.html" %}
+{% block title %}SRIE > TP2 - Scanning Networks{% endblock %}
+{% block content %}
+<div class="container p-5 my-5">
+    <!-- Main Title -->
+    <h1 class="text-center">SRIE > TP2 - Scanning Networks</h2>
+    <div class="container p-5 my-5 border">
+        <!-- Description -->
+        <p class="lead">
+            Description text. Description text. Description text. Description text.
+        </p>
+                
+        <p class="lead">
+            Description text. Description text. Description text. Description text. 
+        </p>
+    </div>
+
+    <!-- Useful tools title -->
+    <h2 class="mt-5 text-center">Useful tools used in this phase</h2>    
+
+    <div class="container p-5 my-5 border">
+        <p class="lead">
+            Below is a list of tools that can be used for this pentesting phase:
+        </p>
+        
+        <ol class="list-group">
+            <li class="list-group-item">
+                <h5><a href="{{url_for('blueprint.srie_tp2_pingaddr')}}" class="list-group-item-action">Ping an IP address</a></h5>
+                <p class="lead">
+                    Ping can be used during a penetration test to send ICMP Echo Request packets to a target system or 
+                    network, and then analyze the response to gather information about the target. By sending ping requests and 
+                    analyzing the responses, pentesters can determine if a host is online, assess its response time (round-trip time or 
+                    RTT), and identify potential targets for further exploration or exploitation.
+                </p>
+            </li>
+            <li class="list-group-item">
+                <h5><a href="#" class="list-group-item-action">Tool 2</a></h5>
+                <p class="lead">
+                    Description text. Description text. Description text. Description text.
+                </p>
+            </li>
+            <li class="list-group-item">
+                <h5><a href="#" class="list-group-item-action">Tool 3</a></h5>
+                <p class="lead">
+                    Description text. Description text. Description text. Description text.
+                </p>
+            </li>
+            <li class="list-group-item">
+                <h5><a href="#" class="list-group-item-action">Tool 4</a></h5>
+                <p class="lead">
+                    Description text. Description text. Description text. Description text.
+                </p>
+            </li>
+            <li class="list-group-item">
+                <h5><a href="#" class="list-group-item-action">Tool 5</a></h5>
+                <p class="lead">
+                    Description text. Description text. Description text. Description text.
+                </p>
+            </li>
+        </ol>
+    </div>
+
+</div>
+{% endblock %}
+

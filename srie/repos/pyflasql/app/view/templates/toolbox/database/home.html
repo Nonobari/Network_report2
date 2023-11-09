@@ -1,0 +1,58 @@
+<!-- 
+This file is part of PyFlaSQL.
+Original author: Raphael Viera (raphael.viera@emse.fr)
+License: check the LICENSE file.
+-->
+{% extends "base.html" %}
+{% block title %}Toolbox > WTForms{% endblock %}
+{% block content %}
+<div class="container p-5 my-5">
+    <!-- Main Title -->
+    <h1 class="text-center">Toolbox > Database</h1>
+    <div class="container p-5 my-5 border">
+        <!-- Description -->
+        <p class="lead">
+            This page provides a list of examples of building block tools that can be used in the development of 
+            your application.
+        </p>
+
+    </div>
+
+    <!-- Building Blocks section -->
+    <h2 class="mt-5 my-5 text-center">Building Blocks</h2>
+
+    <div class="container p-5 my-5 border">
+        <p class="lead">
+        Here you can find a few examples of building block tools that can be used during the development of your 
+        application, depending on your specific requirements and technologies. 
+        </p>
+        <ol class="list-group mt-5">
+            <li class="list-group-item">
+                <h5><a href="{{url_for('blueprint.toolbox_database_insert_data')}}" class="list-group-item-action">Insert, query and delete data from Database</a></h5>
+                <p class="lead">Illustrates how to utilize SQLite (insert, query and delete data) and WTForms library to generate a 
+                    basic book listing application as an example.
+                </p>
+            </li>
+            <li class="list-group-item">
+                <h5><a href="#" class="list-group-item-action">Tool 2</a></h5>
+                <p class="lead">
+                    To be implemented
+                </p>
+            </li>
+            <li class="list-group-item">
+                <h5><a href="#" class="list-group-item-action">Tool 3</a></h5>
+                <p class="lead">
+                    To be implemented
+                </p>
+            </li>
+            <li class="list-group-item">
+                <h5><a href="#" class="list-group-item-action">Tool 4</a></h5>
+                <p class="lead">
+                    To be implemented
+                </p>
+            </li>
+        </ol>
+    </div>
+</div>
+{% endblock %}
+

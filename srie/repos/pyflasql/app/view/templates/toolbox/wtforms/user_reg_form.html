@@ -1,0 +1,155 @@
+<!-- 
+This file is part of PyFlaSQL.
+Original author: Raphael Viera (raphael.viera@emse.fr)
+License: check the LICENSE file.
+-->
+{% extends "base.html" %}
+{% block title %}Toolbox > Basic Form Elements{% endblock %}
+{% block content %}
+<div class="container p-5 my-5">
+    <!-- Main Title -->
+    <h1 class="text-center">Toolbox > Basic Form Elements</h1>
+    <div class="container p-5 my-5 border bg-light">
+        <!-- Description -->
+        <p class="lead">
+            Demonstrates how to use the fundamental form components from the WTForms library to 
+            create a robust user account creation feature.
+        </p>
+
+    </div>
+
+    <!-- Four steps section -->
+    <h2 class="mt-5 my-5 text-center">Example: User Profile Form</h2>
+
+    <div class="container p-5 my-5 border bg-light">
+        <p class="lead">
+            Please complete the User Profile Form by filling in the required information below:
+        </p>
+        <form method="post" action="" id="myForm">
+            {{ content["form"].csrf_token }}
+
+            <div class="form-group mt-2">
+                <label for="{{ content["form"].name.id }}">{{ content["form"].name.label.text }}</label>
+                {{ content["form"].name(class="form-control") }}
+                {% for error in content["form"].name.errors %}
+                    <span class="text-danger">{{ error }}</span>
+                {% endfor %}
+            </div>
+
+            <div class="form-group mt-2">
+                <label for="{{ content["form"].email.id }}">{{ content["form"].email.label.text }}</label>
+                {{ content["form"].email(class="form-control") }}
+                {% for error in content["form"].email.errors %}
+                    <span class="text-danger">{{ error }}</span>
+                {% endfor %}
+            </div>
+
+            <div class="form-group mt-2">
+                <label for="{{ content["form"].password.id }}">{{ content["form"].password.label.text }}</label>
+                {{ content["form"].password(class="form-control") }}
+                {% for error in content["form"].password.errors %}
+                    <span class="text-danger">{{ error }}</span>
+                {% endfor %}
+            </div>
+
+            <div class="form-group mt-2">
+                <label for="{{ content["form"].confirm_password.id }}">{{ content["form"].confirm_password.label.text }}</label>
+                {{ content["form"].confirm_password(class="form-control") }}
+                {% for error in content["form"].confirm_password.errors %}
+                    <span class="text-danger">{{ error }}</span>
+                {% endfor %}
+            </div>
+
+            <div class="form-group mt-2">
+                <label for="{{ content["form"].age.id }}">{{ content["form"].age.label.text }}</label>
+                {{ content["form"].age(class="form-control") }}
+                {% for error in content["form"].age.errors %}
+                    <span class="text-danger">{{ error }}</span>
+                {% endfor %}
+            </div>
+
+            <div class="form-group mt-2">
+                <label for="{{ content["form"].gender.id }}">{{ content["form"].gender.label.text }}</label>
+                {{ content["form"].gender(class="form-control") }}
+                {% for error in content["form"].gender.errors %}
+                    <span class="text-danger">{{ error }}</span>
+                {% endfor %}
+            </div>
+            
+            <div class="form-group mt-2">
+                <label for="{{ content["form"].bio.id }}">{{ content["form"].bio.label.text }}</label>
+                {{ content["form"].bio(class="form-control") }}
+                {% for error in content["form"].bio.errors %}
+                    <span class="text-danger">{{ error }}</span>
+                {% endfor %}
+            </div>
+
+            <div class="form-group form-check mt-2">
+                {{ content["form"].agree(class="form-check-input") }}
+                <label class="form-check-label" for="{{ content["form"].agree.id }}">{{ content["form"].agree.label.text }}</label>
+                {% for error in content["form"].agree.errors %}
+                    <br><span class="text-danger">{{ error }}</span>
+                {% endfor %}
+            </div>
+
+            <div class="form-group mt-2">
+                <label for="{{ content["form"].date.id }}">{{ content["form"].date.label.text }}</label>
+                {{ content["form"].date(class="form-control") }}
+                {% for error in content["form"].date.errors %}
+                    <span class="text-danger">{{ error }}</span>
+                {% endfor %}
+            </div>
+
+            <div class="form-group mt-2">
+                <label>{{ content["form"].option.label.text }}</label>
+                <br>
+                {% for subfield in content["form"].option %}
+                    <div class="form-check form-check-inline">
+                        {{ subfield(class="form-check-input") }}
+                        <label class="form-check-label" for="{{ subfield.id }}">{{ subfield.label.text }}</label>
+                    </div>
+                {% endfor %}
+                {% for error in content["form"].option.errors %}
+                <br><span class="text-danger">{{ error }}</span>
+                {% endfor %}
+            </div>
+            
+            <button type="submit" class="btn btn-primary mt-2">Submit</button>
+        </form>
+        
+    </div>
+
+    <!-- Four steps section -->
+    <h2 class="mt-5 my-5 text-center">Form Output</h2>
+
+    <div class="container p-5 my-5 border bg-light">
+        <p class="lead">
+            When the "Submit" button is clicked, the form content will be sent to Python through Flask, and then the 
+            processed data will be sent back to HTML for further display or processing.
+        </p>
+        {% if "empty" not in content["read_data"]%}
+            <h4>Raw Response</h4>
+            <div class="container p-5 my-5 border">
+                <p class="lead"><b>Raw response</b>: {{ content["read_data"] }}</p>
+            </div>
+
+            <h4>Processed Response</h4>
+            <div class="container p-5 my-5 border">
+                <p class="lead"><b>Name</b>: {{ content["read_data"]["name"] }}</p>
+                <p class="lead"><b>E-mail</b>: {{ content["read_data"]["email"] }}</p>
+                <p class="lead"><b>Password</b>: {{ content["read_data"]["password"] }}</p>
+                <p class="lead"><b>Confirm password</b>: {{ content["read_data"]["confirm_password"] }}</p>
+                <p class="lead"><b>Age</b>: {{ content["read_data"]["age"] }}</p>
+                <p class="lead"><b>Gender</b>: {{ content["read_data"]["gender"] }}</p>
+                <p class="lead"><b>Bio</b>: {{ content["read_data"]["bio"] }}</p>
+                <p class="lead"><b>Agree</b>: {{ content["read_data"]["agree"] }}</p>
+                <p class="lead"><b>Date</b>: {{ content["read_data"]["date"] }}</p>
+                <p class="lead"><b>Option</b>: {{ content["read_data"]["option"] }}</p>
+            {% else %}
+                Waiting.......
+            </div>
+        {% endif %}
+            
+</div>
+{% endblock %}
+
