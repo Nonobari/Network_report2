@@ -27,6 +27,18 @@ class UserDB(db.Model, UserMixin):
     password = db.Column(db.String(80), nullable=False)
     role = db.Column(db.Integer, nullable=False, unique=False)
 
+class UserSQLInjection(db.Model):
+    """
+    Represents a user for the SQL injection database.
+    
+    Attributes:
+        - id: Integer field, primary key of the User.
+        - username: String field, username of the User, must be unique and not nullable.
+        - password: String field, password of the User, not nullable.
+    """
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String(20), nullable=False, unique=True)
+    password = db.Column(db.String(80), nullable=False)
 
 class ToolboxBookLibraryDB(db.Model):
     """

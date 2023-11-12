@@ -1,0 +1,56 @@
+<!-- 
+This file is part of PyFlaSQL.
+Original author: Raphael Viera (raphael.viera@emse.fr)
+License: check the LICENSE file.
+-->
+{% extends "base.html" %}
+{% block title %}SRIE > SQL Injection{% endblock %}
+{% block content %}
+<div class="container p-5 my-5">
+    <!-- Main Title -->
+    <h1 class="text-center">SRIE > SQL Injection</h2>
+    <div class="container p-5 my-5 border">
+        <!-- Description -->
+        <p class="lead">
+            This page shows the fundamentals of SQL injection.
+            It is composed of 3 sections:
+            <li class="list-group-item">- Description</li>
+            <li class="list-group-item">- One lab to try to exploit a SQL injection vulnerability</li>
+            <li class="list-group-item">- The countermeasures to prevent SQL injection attacks</li>
+        </p>
+                
+    </div>
+
+    <!-- Useful tools title -->
+    <h2 class="mt-5 text-center">Links to access the pages</h2>    
+
+    <div class="container p-5 my-5 border">
+        <p class="lead">
+            Below is a list of tools that can be used for this pentesting phase:
+        </p>
+        
+        <ol class="list-group">
+            <li class="list-group-item">
+                <h5><a href="{{url_for('blueprint.srie_SQL_injection_description')}}" class="list-group-item-action">Description</a></h5>
+                <p class="lead">
+                    The description to help you understand the SQL injection vulnerability.
+                </p>
+            </li>
+            <li class="list-group-item">
+                <h5><a href="{{url_for('blueprint.srie_SQL_injection_lab')}}" class="list-group-item-action">SQL Injection Lab</a></h5>
+                <p class="lead">
+                    The lab to try to exploit a SQL injection vulnerability.
+                </p>
+            </li>
+            <li class="list-group-item">
+                <h5><a href="{{url_for('blueprint.srie_SQL_injection_countermeasure')}}" class="list-group-item-action">Countermeasures</a></h5>
+                <p class="lead">
+                    To help you prevent SQL injection attacks.
+                </p>
+            </li>
+        </ol>
+    </div>
+
+</div>
+{% endblock %}
+

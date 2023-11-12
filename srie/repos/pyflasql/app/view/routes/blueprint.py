@@ -15,6 +15,7 @@ from ...controllers.user_profile.controller import user_profile
 from ...controllers.toolbox.controller import toolbox_home
 from ...controllers.toolbox.wtforms.controller import toolbox_wtforms_home, toolbox_wtforms_user_reg_form, toolbox_wtforms_upload_form  
 from ...controllers.toolbox.database.controller import toolbox_database_home, toolbox_database_insert_data  
+from ...controllers.srie.SQL_injection.controller import srie_SQL_injection, srie_SQL_injection_description, srie_SQL_injection_countermeasure, srie_SQL_injection_lab
 
 blueprint = Blueprint('blueprint', __name__, template_folder='../templates', static_folder='../../assets')
 
@@ -31,6 +32,13 @@ blueprint.route('/user_profile/user_profile', methods=['GET', 'POST'])(user_prof
 
 # SRIE
 blueprint.route('/srie/home', methods=['GET', 'POST'])(srie_home)
+
+# SQL Injection
+blueprint.route('/srie/SQL_injection/home', methods=['GET', 'POST'])(srie_SQL_injection)
+blueprint.route('/srie/SQL_injection/description', methods=['GET', 'POST'])(srie_SQL_injection_description)
+blueprint.route('/srie/SQL_injection/countermeasure', methods=['GET', 'POST'])(srie_SQL_injection_countermeasure)
+blueprint.route('/srie/SQL_injection/lab', methods=['GET', 'POST'])(srie_SQL_injection_lab)
+
 
 # TP1 - Reconnaissance / Footprint
 blueprint.route('/srie/tp1_recon_footprint/home', methods=['GET', 'POST'])(srie_tp1_recon_footprint)

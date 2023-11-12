@@ -9,7 +9,7 @@ from flask import Flask, render_template, url_for, redirect
 from flask_login import UserMixin, login_user, LoginManager, login_required, logout_user, current_user
 from flask_bcrypt import Bcrypt
 
-from .sql import db, UserDB
+from .sql import db, UserDB, UserSQLInjection
 
 class PyFlaSQL():
     """Create the application PyFlaSQL"""
@@ -26,6 +26,19 @@ class PyFlaSQL():
                 new_user = UserDB(username="admin", password=hashed_password, role=666)
                 db.session.add(new_user)
                 db.session.commit()
+
+            #add some users by default in the SQL Injection database
+            new_users = [UserSQLInjection(username="administrator", password="D0i@750PnF#("),
+                        UserSQLInjection(username="user0", password="user0"),
+                        UserSQLInjection(username="user1", password="user1"),
+                        UserSQLInjection(username="user2", password="user2"),
+                        UserSQLInjection(username="user3", password="user3"),
+                        UserSQLInjection(username="user4", password="user4"),]
+                        
+            for user in new_users:
+                if user is None:
+                    db.session.add(user)
+                    db.session.commit()
 
         # debug - print the URL map of blueprint (check the console)
         # print(self.myapp.url_map)
