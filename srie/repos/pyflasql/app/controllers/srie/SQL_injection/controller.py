@@ -129,6 +129,7 @@ def srie_SQL_injection_lab():
         content["query"] = query
         rows = result.fetchall()
         # Check if the query returned a result
+
         if len(rows) == 0:
             content["result"] = "No result"
         else:
@@ -136,6 +137,25 @@ def srie_SQL_injection_lab():
         
         # Close the connection to the database
         session.close()
+        if len(rows)==1 and rows[0][1] == 'administrator':
+            return render_template(url_for('blueprint.srie_SQL_injection_loggedIn')+'.html', content=content)
 
         return render_template(url_for('blueprint.srie_SQL_injection_lab')+'.html', content=content)
     return render_template(url_for('blueprint.srie_SQL_injection_lab')+'.html', content=content)
+
+@login_required
+def srie_SQL_injection_loggedIn():
+    """
+        Handles the logic for view/templates/srie/SQL_injection/loggedIn.html
+        Login is required to view this page
+
+        Go to loggedIn if administrator credentials is entered.
+
+        Args:
+            - None.
+
+        Returns:
+            - rendered template view/templates/srie/SQL_injection/loggedIn.html with content passed as a context variable
+        """
+    # Create a dict to store the formulary and the shell output. This dict is passed to the .html file.
+    return render_template(url_for('blueprint.srie_SQL_injection_loggedIn')+'.html')

@@ -8,13 +8,10 @@ Create forms to be passed to the frontend
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, BooleanField, SubmitField, IntegerField
 from wtforms.validators import DataRequired, Email, InputRequired, Length, ValidationError, NumberRange
+from flask_wtf.file import FileField, FileAllowed, FileRequired
 
-
-class PingAddrForm(FlaskForm):
-    ip_address = StringField(validators=[
-        InputRequired(), Length(min=2, max=50)], render_kw={"placeholder": "IP Address"})
-    
-    npings = IntegerField(validators=[
-        NumberRange(min=1, max=100)], render_kw={"placeholder": "Number of pings"}, default=3)
-    
-    submit = SubmitField('Ping')
+class FileUploadForm(FlaskForm):
+    image = FileField('Image', validators=[
+        InputRequired(), 
+        FileAllowed(['jpg', 'jpeg', 'png', 'gif'], 'Only JPEG, PNG, and GIF images are allowed.')])
+    submit = SubmitField('Upload')

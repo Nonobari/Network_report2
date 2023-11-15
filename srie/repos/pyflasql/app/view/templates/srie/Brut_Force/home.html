@@ -1,0 +1,56 @@
+<!-- 
+This file is part of PyFlaSQL.
+Original author: Raphael Viera (raphael.viera@emse.fr)
+License: check the LICENSE file.
+-->
+{% extends "base.html" %}
+{% block title %}SRIE > Brut Force{% endblock %}
+{% block content %}
+<div class="container p-5 my-5">
+    <!-- Main Title -->
+    <h1 class="text-center">SRIE > Brut Force</h2>
+    <div class="container p-5 my-5 border">
+        <!-- Description -->
+        <p class="lead">
+            This page shows the fundamentals of brut force vulnerabilities.
+            It is composed of 3 sections:
+            <li class="list-group-item">- Description</li>
+            <li class="list-group-item">- One lab to try to exploit a brut force vulnerability</li>
+            <li class="list-group-item">- The countermeasures to prevent brut force attacks</li>
+        </p>
+                
+    </div>
+
+    <!-- Useful tools title -->
+    <h2 class="mt-5 text-center">Links to access the pages</h2>    
+
+    <div class="container p-5 my-5 border">
+        <p class="lead">
+            Below is a list of tools that can be used for this pentesting phase:
+        </p>
+        
+        <ol class="list-group">
+            <li class="list-group-item">
+                <h5><a href="{{url_for('blueprint.srie_Brut_Force_description')}}" class="list-group-item-action">Description</a></h5>
+                <p class="lead">
+                    The description to help you understand brut force vulnerabilities.
+                </p>
+            </li>
+            <li class="list-group-item">
+                <h5><a href="{{url_for('blueprint.srie_Brut_Force_lab')}}" class="list-group-item-action">Brut Force Lab</a></h5>
+                <p class="lead">
+                    The lab to try to exploit a brut force vulnerability.
+                </p>
+            </li>
+            <li class="list-group-item">
+                <h5><a href="{{url_for('blueprint.srie_Brut_Force_countermeasure')}}" class="list-group-item-action">Countermeasures</a></h5>
+                <p class="lead">
+                    To help you prevent brut force attacks.
+                </p>
+            </li>
+        </ol>
+    </div>
+
+</div>
+{% endblock %}
+

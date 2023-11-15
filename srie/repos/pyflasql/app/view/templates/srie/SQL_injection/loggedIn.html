@@ -1,0 +1,34 @@
+<!-- 
+This file is part of PyFlaSQL.
+Original author: Raphael Viera (raphael.viera@emse.fr)
+License: check the LICENSE file.
+-->
+{% extends "base.html" %}
+{% block title %}PyFlaSQL{% endblock %}
+{% block content %}
+<div class="container p-5 my-5">
+    <!-- Main Title -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        <div class=text-center mb-4>
+        {% for category, message in messages %}
+        <div class="alert alert-danger" role="alert">
+            {{ category }}: {{ message }}
+        </div>
+        {% endfor %}
+        </div>
+    {% endif %}
+    {% endwith %}
+    <h1 class="text-center">Welcome {{content["username"]}} !</h1>
+    <div class="container p-5 my-5 border">
+        <!-- Description -->
+        <p class="lead">
+            Congratulations, you have successfully logged in as the administrator.
+        </p>
+                
+      
+    </div>
+
+</div>
+{% endblock %}
+

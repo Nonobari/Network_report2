@@ -1,0 +1,69 @@
+<!-- 
+This file is part of PyFlaSQL.
+Original author: Raphael Viera (raphael.viera@emse.fr)
+License: check the LICENSE file.
+-->
+{% extends "base.html" %}
+{% block title %}SRIE > File Upload> > Lab{% endblock %}
+{% block content %}
+<div class="container p-5 my-5">
+    <h2 class="text-center">SRIE > File Upload > Lab</h2>
+    <div class="container p-5 my-5 border bg-light">
+        <p class="lead">
+            Welcome to the file upload lab. The goal is to exploit the vulnerabilities on file uploading to gain access to the server. <br>
+            You are able to upload a file, but you can only upload images.
+        </p>
+    </div>
+
+   <!-- Command Execution section -->
+   <h3 class="mt-5 text-center">Change your profile picture :</h3>
+
+   <div class="container p-5 my-5 border bg-light">
+    <p class="lead">
+        Please select an image to upload:
+    </p>
+    <form method="POST" action="" enctype="multipart/form-data">
+        {{ content['form'].csrf_token }}
+        <div class="form-group">
+            <label for="{{ content['form'].image.id }}">{{ content['form'].image.label.text }}</label>
+            {{ content["form"].image(class="form-control-file") }}
+            {% for error in content["form"].image.errors %}
+                <span class="text-danger">{{ error }}</span>
+            {% endfor %}
+        </div>
+        <button type="submit" class="btn btn-primary mt-2">Submit</button>
+    </form>
+    
+    
+</div>
+
+    
+
+   <div class="container p-5 my-5 border bg-light">
+    <p class="lead">
+        When the "Submit" button is clicked, the form content will be sent to Python through Flask, and then the 
+        processed data will be sent back to HTML for further display or processing.
+    </p>
+
+    <h4>Response</h4>
+    {% if content["confirm"]%}
+        <div class="container p-5 my-5 border">
+        <p class="lead">File path: {{ content['file_path'] }}</p>
+        <p class="lead">File URL: {{ content['file_url'] }}</p>
+        <p><img src="{{ content['file_url'] }}" class="img-fluid"></p>
+        </div>
+    {% else %}
+        <div class="container p-5 border">
+        <p class="lead text">Waiting to upload image file ...</p>
+        </div>
+    {% endif %}
+        
+</div>
+
+    
+</div>
+{% endblock %}
+
+
+
+
