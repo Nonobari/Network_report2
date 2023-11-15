@@ -15,9 +15,6 @@ from ...utils import get_shell_output, CheckIf, get_current_directory
 from ....models.srie.File_upload.forms import FileUploadForm
 from werkzeug.utils import secure_filename
 
-from ....models.toolbox.forms import ToolboxUserRegForm, ToolboxUploadForm
-
-
 @login_required
 def srie_home():
     """
@@ -101,7 +98,7 @@ def srie_File_upload_lab():
         """
 
     UPLOAD_FOLDER = os.path.join(get_current_directory(), "app/assets/uploads")
-    content = {"form": ToolboxUploadForm(),
+    content = {"form": FileUploadForm(),
                "confirm": False,
                "file_path": False,
                "file_url": False,

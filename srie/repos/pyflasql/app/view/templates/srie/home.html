@@ -8,65 +8,50 @@ License: check the LICENSE file.
 {% block content %}
 <div class="container p-5 my-5">
     <!-- Main Title -->
-    <h1 class="text-center">Welcome to the Penetration Testing Course (SRIE)</h1>
+    <h1 class="text-center">Bienvenue dans le cours de sécurité web</h1>
     <div class="container p-5 my-5 border">
         <!-- Description -->
         <p class="lead">
-            Pen testing, is a evaluation of an organization's ability to safeguard its networks, 
-            applications, endpoints, and users from both external and internal attempts to bypass its security controls and 
-            gain unauthorized or privileged access to protected assets.
+            La sécurité web vise à protéger les systèmes, les données et les utilisateurs en ligne contre les menaces, les attaques et les vulnérabilités potentielles.
+            Dans ce cours, nous allons voir 3 des attaques les plus courantes sur le web.
         </p>
                 
         <p class="lead">
-            PyFlaSQL is the framework used for cybersecurity courses in the ISMIN cycle of Mines Saint-Etienne. 
-            It provides ISMIN students with a foundation to create their own pentesting tools, allowing them to 
-            evaluate local networks, web services, and applications. PyFlaSQL is a valuable resource for developing 
-            custom pentesting solutions in cybersecurity education.
+            Nous allons utiliser PyFlaSQL qui est un outil efficace pour apprendre la sécurité web. Il est basé sur Flask, un framework web Python, avec SQLAlchemy pour gérer les bases de données.
         </p>
 
     </div>
 
     <!-- Four steps section -->
-    <h2 class="mt-5 my-5 text-center">The Four Steps in the Penetration Testing Process</h2>
+    <h2 class="mt-5 my-5 text-center">3 attaques web courantes et dévastatrices :</h2>
 
     <div class="container p-5 my-5 border">
-        <p class="lead">
-            In this course, you will learn about assessing and evaluating the security of networks, applications, 
-            and systems. The pentesting process is divided into four key steps, which you will implement through 
-            practical labs and code exercises to gain hands-on experience. You will develop skills in identifying 
-            vulnerabilities, exploiting weaknesses, and evaluating security posture.
-        </p>
         <ol class="list-group mt-5">
             <li class="list-group-item">
-                <h5><a href="{{url_for('blueprint.srie_File_upload')}}" class="list-group-item-action">TP1 - Reconnaissance / Footprint</a></h5>
-                <p class="lead">This step involves gathering information about the target system or network, such as identifying the
-                    IP addresses and social engineering techniques to obtain valuable information that can be used to gain access 
-                    to user passwords and servers. You will learn how to perform reconnaissance techniques and footprinting to 
-                    gather critical information that can help you understand the target's vulnerabilities.
+                <h5><a href="{{url_for('blueprint.srie_SQL_injection')}}" class="list-group-item-action">SQL Injection</a></h5>
+                <p class="lead">  L'injection SQL est un type d'attaque qui permet à l'attaquant d'extraire des informations 
+                    de base de données de l'application Web. Lorsque cela se produit, l'attaquant peut accéder à la base de données 
+                    et extraire des informations telles que les noms d'utilisateur, les mots de passe, les adresses e-mail, etc. 
+                    Dans le pire des cas, l'attaquant peut même modifier la base de données, ce qui peut conduire à une 
+                    compromission complète de l'application Web.
                 </p>
             </li>
             <li class="list-group-item">
-                <h5><a href="{{url_for('blueprint.srie_tp2_scanning_networks')}}" class="list-group-item-action">TP2 - Scanning Networks</a></h5>
-                <p class="lead">In this step, you will be learning how to use various scanning tools to identify open ports,
-                    vulnerable services, and potential entry points into the target system or network. You will
-                    explore techniques such as port scanning, vulnerability scanning, and network mapping to
-                    identify potential security weaknesses.
+                <h5><a href="{{url_for('blueprint.srie_File_upload')}}" class="list-group-item-action">File Upload</a></h5>
+                <p class="lead">La vulnérabilité de l'upload de fichiers est une faille de sécurité qui permet à un attaquant de 
+                    télécharger des fichiers malveillants sur le serveur d'une application Web. En exploitant cette faille, l'attaquant 
+                    peut potentiellement exécuter des scripts nuisibles sur le serveur, compromettant ainsi l'intégrité du système. 
+                    Dans les cas les plus graves, cela peut conduire à une prise de contrôle complète du serveur, mettant en danger la confidentialité 
+                    des données stockées et la stabilité de l'application Web
                 </p>
             </li>
             <li class="list-group-item">
-                <h5><a href="{{url_for('blueprint.srie_tp3_enumeration')}}" class="list-group-item-action">TP3 - Enumeration</a></h5>
-                <p class="lead">Once you have identified potential vulnerabilities in the target system, the next step is
-                    enumeration. You will learn how to extract valuable information, such as user accounts, system
-                    configurations, and network resources, to gain a deeper understanding of the target
-                    environment. Enumeration is a crucial step in identifying potential avenues for gaining
-                    unauthorized access.
-                </p>
-            </li>
-            <li class="list-group-item">
-                <h5><a href="{{url_for('blueprint.srie_tp4_gaining_access')}}" class="list-group-item-action">TP4 - Gaining Access</a></h5>
-                <p class="lead">The final step in the penetration testing process is gaining access to the target system or
-                    network. You will learn about various techniques, such as exploiting vulnerabilities, brute
-                    forcing, to gain unauthorized access to the target environment.
+                <h5><a href="{{url_for('blueprint.srie_Brut_Force')}}" class="list-group-item-action">Brute Force</a></h5>
+                <p class="lead">L'attaque par force brute, également connue sous le nom de « brute force », est une méthode d'attaque
+                     informatique où un attaquant tente de deviner un mot de passe en essayant de nombreuses combinaisons possibles jusqu'à 
+                     ce que la bonne soit trouvée. Dans le contexte de la sécurité web, une attaque par force brute peut compromettre l'accès
+                      à des comptes utilisateur en ligne en testant de manière itérative différentes combinaisons de noms d'utilisateur et de mots
+                       de passe, mettant ainsi en péril la confidentialité des données et la sécurité des comptes associés.
                 </p>
             </li>
         </ol>

@@ -4,26 +4,19 @@ Original author: Raphael Viera (raphael.viera@emse.fr)
 License: check the LICENSE file.
 -->
 {% extends "base.html" %}
-{% block title %}SRIE > SQL Injection > Description{% endblock %}
+{% block title %}SRIE > File Upload > Description{% endblock %}
 {% block content %}
 <div class="container p-5 my-5">
-    <h2 class="text-center">SRIE > SQL Injection > Description</h2>
+    <h2 class="text-center">SRIE > File Upload > Description</h2>
     <div class="container p-5 my-5 border bg-light">
         <p class="lead">
-            SQL Injection is a type of attack that allows the attacker to extract database information from the web application.
-            When it occurs, the attacker can access the database and extract information such as usernames, passwords, email addresses, etc.
-            In worst cases, the attacker can even modify the database, which can lead to a complete compromise of the web application.<br><br>
-
-        For example, if a website make a query like : <br>
-            <code>{% raw %} SELECT * FROM users WHERE username = 'input_username' AND password = 'input_password'; {% endraw %}</code> <br>
-            and the user input is not sanitized, the attacker can inject a SQL query to bypass the authentication. <br><br>
-
-            For example, if the user input is <code>admin' --</code>, the query will become: <br>
-            <code class="p-5">{% raw %} SELECT * FROM users WHERE username = 'admin' --' AND password = 'input_password'; {% endraw %}</code>
-            The <code>--</code> is used to comment the rest of the query.
-            The query will return the first user in the database, which is usually the administrator. <br><br>
-            The attacker can then login as the administrator without knowing the password.
-
+            Les vulnérabilités de téléchargement de fichiers surviennent lorsqu'un serveur Web permet aux utilisateurs de télécharger 
+            des fichiers sur son système de fichiers sans valider suffisamment des éléments tels que leur nom, leur type, leur contenu ou leur taille.<br><br>
+            Ne pas appliquer correctement les restrictions à ce sujet pourrait signifier que même une fonction de téléchargement 
+            d’images de base peut être utilisée pour télécharger des fichiers arbitraires et potentiellement dangereux. 
+            <br><br>
+            Si la validation du nom de fichier n'est pas effectuée correctement, cela pourrait potentiellement permettre à un attaquant d'écraser des fichiers cruciaux en téléchargeant un fichier portant le même nom. Dans le cas où le serveur est vulnérable à la traversée de répertoires, cela pourrait autoriser les attaquants à télécharger des fichiers dans des emplacements inattendus.
+            <br>Le fait de ne pas vérifier que la taille du fichier se situe dans les plages prévues pourrait également ouvrir la porte à une forme d'attaque par déni de service (DoS). Dans ce scénario, un attaquant pourrait exploiter cette vulnérabilité pour remplir l'espace disque disponible.
         </p>
     </div>
 </div>

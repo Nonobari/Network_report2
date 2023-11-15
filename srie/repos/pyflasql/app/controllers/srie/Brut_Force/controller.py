@@ -83,13 +83,8 @@ def srie_Brut_Force_lab():
     """
     content = LoginForm()
     if content.validate_on_submit():
-        lignes = UserSQLInjection.query.all()
-        #lignes = UserBrutForce.query.all()
-        for l in lignes:
-            print(f"{l.username} {l.password}")
         user = UserBrutForce.query.filter_by(username=content.username.data).first()
         if user:
-            print("oui")
             if (user.password == content.password.data):
                 print(user.password)
                 print(content.password.data)

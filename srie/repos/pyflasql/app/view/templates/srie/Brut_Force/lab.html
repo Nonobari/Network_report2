@@ -8,14 +8,8 @@ License: check the LICENSE file.
 {% block content %}
 <div class="container p-5 my-5">
     <h2 class="text-center">SRIE > Brut Force > Lab</h2>
-    <div class="container p-5 my-5 border bg-light">
-        <p class="lead">
-            Welcome to the brut force lab. The goal is to exploit the vulnerabilities on the login page to gain access to the server. <br>
-        </p>
-    </div>
 
    <!-- Command Execution section -->
-   <h3 class="mt-5 text-center">Login page :</h3>
 
    <div class="container p-5 my-5 border bg-light">
     <p class="lead">
@@ -26,36 +20,15 @@ License: check the LICENSE file.
                 {{ content.username.label(class="form-label") }}
                 {{ content.username(class="form-control") }}
             </div>
-
             <div class="form-group mt-2">
                 {{ content.password.label(class="form-label") }}
                 {{ content.password(class="form-control") }}
             </div>
-
-
-
             <div class="form-group text-center mt-2">
                 {{ content.submit(class="btn btn-primary") }}
             </div>
         </form>
     </p>
-    
-    
-    
-</div>
-
-    
-
-   <div class="container p-5 my-5 border bg-light">
-    <p class="lead">
-        
-    </p>
-
-
-        
-</div>
-
-    
 </div>
 {% endblock %}
 

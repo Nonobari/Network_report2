@@ -8,15 +8,8 @@ License: check the LICENSE file.
 {% block content %}
 <div class="container p-5 my-5">
     <h2 class="text-center">SRIE > SQL Injection > Lab</h2>
-    <div class="container p-5 my-5 border bg-light">
-        <p class="lead">
-            Welcome to the SQL injection lab. The goal is to exploit the SQL injection vulnerability to bypass the authentication and log in as the administrator.
-        </p>
-    </div>
 
    <!-- Command Execution section -->
-   <h3 class="mt-5 text-center">Login</h3>
-
    <div class="container p-5 my-5 border bg-light">
        <form method="post" action="">
            {{ content["form"].csrf_token }}
@@ -41,7 +34,9 @@ License: check the LICENSE file.
         <h4 class="mt-5">Command:</h4>
         <code class="p-5">{{ content["query"] }}</code>
         <h4 class="mt-5">Response:</h4>
-        <code class="p-5">{{ content["result"] }}</code>
+{% for element in content["result"] %}
+    <code class="p-5">{{ element }}</code><br>
+{% endfor %}
     </div>
 
     

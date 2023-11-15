@@ -10,8 +10,6 @@ from ...controllers.controller import index, login, register, dashboard, logout,
 from ...controllers.srie.SQL_injection.controller import srie_SQL_injection, srie_SQL_injection_description, srie_SQL_injection_countermeasure, srie_SQL_injection_lab, srie_SQL_injection_loggedIn
 from ...controllers.srie.File_upload.controller import srie_home, srie_File_upload, srie_File_upload_description,srie_File_upload_countermeasure, srie_File_upload_lab
 from ...controllers.srie.Brut_Force.controller import srie_Brut_Force, srie_Brut_Force_description,srie_Brut_Force_countermeasure, srie_Brut_Force_lab, srie_Brut_Force_loggedIn
-from ...controllers.srie.tp3_enumeration.controller import srie_tp3_enumeration
-from ...controllers.srie.tp4_gaining_access.controller import srie_tp4_gaining_access
 from ...controllers.user_profile.controller import user_profile
 from ...controllers.toolbox.controller import toolbox_home
 from ...controllers.toolbox.wtforms.controller import toolbox_wtforms_home, toolbox_wtforms_user_reg_form, toolbox_wtforms_upload_form  
@@ -54,12 +52,6 @@ blueprint.route('/srie/Brut_Force/description', methods=['GET', 'POST'])(srie_Br
 blueprint.route('/srie/Brut_Force/countermeasure', methods=['GET', 'POST'])(srie_Brut_Force_countermeasure)
 blueprint.route('/srie/Brut_Force/lab', methods=['GET', 'POST'])(srie_Brut_Force_lab)
 blueprint.route('/srie/Brut_Force/loggedIn', methods=['GET', 'POST'])(srie_Brut_Force_loggedIn)
-
-# TP3 - Enumeration
-blueprint.route('/srie/tp3_enumeration/home', methods=['GET', 'POST'])(srie_tp3_enumeration)
-
-# TP4 - Gaining Access
-blueprint.route('/srie/tp4_gaining_access/home', methods=['GET', 'POST'])(srie_tp4_gaining_access)
 
 # Toolbox
 blueprint.route('/toolbox/home', methods=['GET', 'POST'])(toolbox_home)

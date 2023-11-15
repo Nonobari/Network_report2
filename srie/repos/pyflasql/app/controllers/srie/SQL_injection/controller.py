@@ -122,16 +122,21 @@ def srie_SQL_injection_lab():
         #   print(table_name)
 
   
+        #make the SQL injection harder but not impossible :
         query = f"SELECT * FROM user_sql_injection WHERE username = '{username}' AND password = '{password}'"
-      
+        rows = []
         # Execute the query
-        result = session.execute(query)
+        try:
+            result = session.execute(query)
+            rows = result.fetchall()
+
+        except Exception as e:
+            rows.append(str(e))
         content["query"] = query
-        rows = result.fetchall()
         # Check if the query returned a result
 
         if len(rows) == 0:
-            content["result"] = "No result"
+            content["result"] = ["No result"]
         else:
             content["result"] = [rows[i] for i in range(len(rows))]
         
