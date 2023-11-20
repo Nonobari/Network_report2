@@ -30,25 +30,25 @@ class PyFlaSQL():
 
             #add some users by default in the SQL Injection database
             new_users = [UserSQLInjection(username="administrator", password="D0i@750PnF#("),
-                        UserSQLInjection(username="user0", password="user0"),
-                        UserSQLInjection(username="user1", password="user1"),
-                        UserSQLInjection(username="user2", password="user2"),
-                        UserSQLInjection(username="user3", password="user3"),
-                        UserSQLInjection(username="user4", password="user4"),]
+                        UserSQLInjection(username="user0", password="utilisateur"),
+                        UserSQLInjection(username="user1", password="utilisateur"),
+                        UserSQLInjection(username="user2", password="utilisateur"),
+                        UserSQLInjection(username="user3", password="utilisateur"),
+                        UserSQLInjection(username="user4", password="utilisateur"),]
             user = UserSQLInjection.query.filter_by(username="administrator").first()
             if user is None:
                 for u in new_users:
                         db.session.add(u)
                         db.session.commit()
 
-            new_users_brut_force = [UserBrutForce(username="administrator", password="12345678"),
-                        UserBrutForce(username="user0", password="user0123"),
-                        UserBrutForce(username="user1", password="user1"),
-                        UserBrutForce(username="user2", password="user2"),
-                        UserBrutForce(username="user3", password="user3"),
-                        UserBrutForce(username="user4", password="user4"),
-                        UserBrutForce(username="user0123", password="user0123"),
-                        UserBrutForce(username="utilisateur", password="motdepasse"),
+            new_users_brut_force = [UserBrutForce(username="administrator", password="12345678", remainingAttempts=3),
+                        UserBrutForce(username="user0", password="utilisateur", remainingAttempts=3),
+                        UserBrutForce(username="user1", password="utilisateur", remainingAttempts=3),
+                        UserBrutForce(username="user2", password="utilisateur", remainingAttempts=3),
+                        UserBrutForce(username="user3", password="utilisateur", remainingAttempts=3),
+                        UserBrutForce(username="user4", password="utilisateur", remainingAttempts=3),
+                        UserBrutForce(username="user0123", password="user0123", remainingAttempts=3),
+                        UserBrutForce(username="utilisateur", password="motdepasse", remainingAttempts=3),
 ]
             user = UserBrutForce.query.filter_by(username="administrator").first()
             if user is None:

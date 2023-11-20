@@ -8,7 +8,7 @@ Communicates with the SQLite database
 from flask_login import UserMixin, login_user, LoginManager, login_required, logout_user, current_user
 from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
-
+from datetime import datetime
 # Initializes a database object that enables interaction with the database using SQLAlchemy's functionalities.
 db = SQLAlchemy()
 
@@ -53,7 +53,8 @@ class UserBrutForce(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(20), nullable=False, unique=True)
     password = db.Column(db.String(80), nullable=False)
-
+    remainingAttempts = db.Column(db.Integer, nullable=False, unique=False)
+    lastAttempt = db.Column(db.DateTime, nullable=True, unique=False)
 
 class ToolboxBookLibraryDB(db.Model):
     """

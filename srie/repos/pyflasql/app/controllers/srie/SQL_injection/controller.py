@@ -5,7 +5,7 @@
 """
 Implements the logic for SQL Injection
 """
-from flask import Flask, render_template, url_for, redirect
+from flask import Flask, render_template, url_for, redirect, flash
 from flask_login import UserMixin, login_user, LoginManager, login_required, logout_user, current_user
 from flask_sqlalchemy import SQLAlchemy
 # from flask_migrate import Migrate
@@ -16,6 +16,7 @@ from ....models.srie.SQL_injection.forms import SQLInjectionForm
 from sqlalchemy import create_engine, Column, Integer, String, ForeignKey, Table
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
+from ....models.auth import LoginForm
 
 @login_required
 def srie_home():
@@ -79,8 +80,15 @@ def srie_SQL_injection_countermeasure():
         Returns:
             - rendered template view/templates/srie/SQL_injection/countermeasure.html with content passed as a context variable
         """
+    content = LoginForm()
+    if content.validate_on_submit():
+        user = UserSQLInjection.query.filter_by(username=content.username.data).first()
+        if user:
+            if (user.password == content.password.data):
+                return render_template(url_for('blueprint.srie_SQL_injection_countermeasure')+'.html', content=content)
+        flash('Login or password incorrect!', 'Error')
     # Create a dict to store the formulary and the shell output. This dict is passed to the .html file.
-    return render_template(url_for('blueprint.srie_SQL_injection_countermeasure')+'.html')
+    return render_template(url_for('blueprint.srie_SQL_injection_countermeasure')+'.html', content=content )
 
 @login_required
 def srie_SQL_injection_lab():
