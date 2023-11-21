@@ -120,17 +120,6 @@ def srie_SQL_injection_lab():
         engine = create_engine('sqlite:///instance/database.db', echo=True)
         Session = sessionmaker(bind=engine)
         session = Session()
-
-        # Create a query to the database
-
-        
-        #To find the name of the table (user_sql_injection)
-        #table_names = engine.table_names()
-        #for table_name in table_names:
-        #   print(table_name)
-
-  
-        #make the SQL injection harder but not impossible :
         query = f"SELECT * FROM user_sql_injection WHERE username = '{username}' AND password = '{password}'"
         rows = []
         # Execute the query
