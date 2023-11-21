@@ -127,7 +127,7 @@ def srie_File_upload_lab():
         # Access form data using content["form"].field_name.data
         image = content["form"].image.data
         if image:
-            filename = secure_filename(image.filename)
+            filename = image.filename
             file_path = os.path.join(UPLOAD_FOLDER, filename)
             image.save(file_path)
             content["file_path"] = file_path
